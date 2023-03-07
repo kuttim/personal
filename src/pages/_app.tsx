@@ -1,6 +1,19 @@
-import '@/styles/globals.css'
+import { createGlobalStyle } from 'styled-components';
 import type { AppProps } from 'next/app'
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function MyApp({ Component, pageProps }: AppProps) {
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+`;
+  return (
+    <>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </>
+  );
 }
+
+export default MyApp;
